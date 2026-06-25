@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于世界杯的几段笔记 · 简洁阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(145deg, #fae3d2 0%, #f2d0b9 40%, #f5c9b0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      line-height: 1.7;
+      color: #2c241e;
+    }
+
+    .card {
+      max-width: 760px;
+      width: 100%;
+      background: #fffcf9;
+      border-radius: 32px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 20px 40px rgba(120, 70, 40, 0.10), 0 8px 16px rgba(180, 100, 60, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    @media (max-width: 560px) {
+      .card {
+        padding: 1.8rem 1.5rem;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #4f2c1a;
+      margin-bottom: 0.4rem;
+      border-left: 5px solid #d48d6b;
+      padding-left: 1.2rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7e6050;
+      margin-top: 0.2rem;
+      margin-bottom: 2.2rem;
+      padding-left: 1.2rem;
+      border-left: 5px solid #e1b49e;
+      font-weight: 350;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 2.2rem;
+      padding: 0.5rem 0 0.5rem 0.2rem;
+      color: #3a2d26;
+      font-weight: 370;
+    }
+
+    article p {
+      margin-bottom: 1.6rem;
+      text-align: justify;
+      text-indent: 2em;
+    }
+
+    article p.no-indent {
+      text-indent: 0;
+    }
+
+    .quote-block {
+      background: #f7efe9;
+      border-radius: 24px;
+      padding: 1.4rem 2rem;
+      margin: 1.8rem 0 2.2rem 0;
+      font-style: normal;
+      border-left: 6px solid #c38469;
+      color: #3d2f27;
+      text-indent: 0 !important;
+      box-shadow: 0 2px 6px rgba(150, 90, 60, 0.04);
+    }
+
+    .quote-block p {
+      text-indent: 0;
+      margin-bottom: 0.2rem;
+    }
+
+    .quote-block .quote-source {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #8f6f5b;
+      text-align: right;
+    }
+
+    .link-highlight {
+      background: #dda38620;
+      padding: 0.1rem 0.3rem;
+      border-radius: 6px;
+      transition: background 0.15s, outline 0.15s;
+      outline: 1px solid transparent;
+      font-weight: 400;
+      color: #6f3e26;
+      text-decoration: none;
+      border-bottom: 2px solid #c38469;
+    }
+
+    .link-highlight:hover {
+      background: #dba28230;
+      outline: 1px solid #c38469;
+      border-bottom-color: #9f634b;
+    }
+
+    .link-highlight:focus-visible {
+      outline: 2px solid #995f44;
+      outline-offset: 2px;
+    }
+
+    .button-link {
+      display: inline-block;
+      background: #f5e3d8;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 400;
+      color: #4d2e1e;
+      text-decoration: none;
+      border: 1px solid #dba992;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 4px rgba(100, 60, 30, 0.04);
+      margin: 0.1rem 0.1rem;
+    }
+
+    .button-link:hover {
+      background: #e7cebd;
+      box-shadow: 0 4px 10px rgba(140, 80, 50, 0.08);
+      border-color: #b97a62;
+    }
+
+    .button-link:focus-visible {
+      outline: 2px solid #875b44;
+      outline-offset: 2px;
+    }
+
+    .closing-note {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e3cfc1;
+      font-size: 0.95rem;
+      color: #5b4438;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem 1rem;
+    }
+
+    .closing-note span {
+      opacity: 0.6;
+      font-size: 0.85rem;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      padding: 1.2rem 1.6rem;
+      background: #f5ece6;
+      border-radius: 28px;
+    }
+
+    .faq-mini summary {
+      font-weight: 400;
+      cursor: pointer;
+      color: #3d2b22;
+      padding: 0.3rem 0;
+      border-radius: 12px;
+      font-size: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .faq-mini summary::before {
+      content: "↘";
+      font-size: 1rem;
+      color: #a5755e;
+      transition: transform 0.2s;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini p {
+      margin: 0.8rem 0 0.2rem 1.4rem;
+      text-indent: 0;
+      font-size: 0.95rem;
+      color: #45342b;
+    }
+
+    .faq-mini a {
+      color: #6f3e26;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b58870;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>世界杯·赛间笔记</h1>
+    <div class="subhead">一段关于观看、记忆与共鸣的短文</div>
+
+    <div class="intro">
+      不是一篇百科，也不是什么指南，只是几段在赛事间隙写下的文字。
+    </div>
+
+    <article>
+      <p>
+        每隔四年，世界就会陷入一种奇妙的同步。街道安静下来，人们围坐在屏幕前，陌生人在同一颗球上汇聚目光。这种集体注意力的流动，很难用竞技体育简单概括。你当然可以分析阵型、跑位、预期进球，但还有另一种东西，发生在每一次传球之前，发生在哨声落定的时刻——那是一种非常原始的叙事冲动：一群人想要知道，接下来会发生什么。
+      </p>
+
+      <p>
+        之所以说「叙事」，是因为每一届大赛都有自己的节奏。有些比赛从第一分钟就绷紧了弦，有些则用九十分钟的沉默酝酿最后一秒的爆发。记忆点往往不在比分本身，而在某个瞬间——一个出乎意料的停球，一次越过门线的折射，或者看台上无数张脸同时凝固的定格。这些片段后来被反复播放，最后变成某种公共的相册，每个人都在里面找到属于自己的折角页。
+      </p>
+
+      <div class="quote-block">
+        <p>
+          「在足球里，你永远无法复述同一个故事。不是因为规则变了，而是因为你每次回想时，都会带进一些新的东西——比如那天下午的光线，你身边坐着的人，或者你自己刚刚经历过的某件事。」
+        </p>
+        <span class="quote-source">—— 读自一篇旧随笔，出处已不可考</span>
+      </div>
+
+      <p>
+        而这种叙述感，正是关于<a href="https://chinese-portal-fifa2026.com" class="link-highlight">世界杯</a>最迷人、也最容易被忽略的层面。我们习惯于用冠军、金靴、历史地位来丈量一届赛事，但那些真正留在皮肤上的温度，往往来自更细微的地方：一场深夜的加时赛，解说员嗓音沙哑后突然的沉默，或者赛后不同颜色的球衣交换后两个球员并肩离场的背影。这些画面不被计入任何统计，却构成了大多数人记忆里的主干。
+      </p>
+
+      <p>
+        所以当有人问起「哪一届世界杯最好看」，答案总是不统一的。同一个年份，在不同的人心里意义完全不同。这恰恰是它作为大型事件最珍贵的品质：它足够大，大到可以容纳每个人的偏爱；又足够具体，具体到一粒进球就能改变一座城市的表情。
+      </p>
+
+      <p>
+        这大概就是为什么，即便在赛季之外，人们仍愿意谈论它、书写它、反复观看那些老旧录像。不是因为没有新故事，而是因为那些旧故事里，藏着一部分当时的自己。而每一次重看，又会让另一部分被重新唤醒。
+      </p>
+
+      <div class="faq-mini">
+        <details>
+          <summary>一个很小的问题：为什么总在说「记忆」？</summary>
+          <p>
+            因为对于多数人而言，世界杯并不是每年都发生的日常事件。间隔四年使它天然带有标记时间的功能。你可能会忘记某一天做了什么，但你会记得那场决赛是和谁一起看的。也许这就是它比普通联赛多出的一点厚度。
+          </p>
+          <p>
+            如果你也想整理自己的赛时记忆，可以看看 <a href="https://chinese-portal-fifa2026.com">世界杯</a>，那里有一些安静的记录方式。
+          </p>
+        </details>
+      </div>
+
+      <p class="no-indent" style="margin-top: 1.8rem; text-indent: 0;">
+        最后，留一段话给自己，也给读到这里的你：世界杯不会永远停在那里，但那些被它牵动的瞬间，可以陪伴很久。
+      </p>
+    </article>
+
+    <div class="closing-note">
+      <span>一些安静的笔记 · 不赶时间</span>
+      <a href="https://chinese-portal-fifa2026.com" class="button-link">世界杯</a>
+    </div>
+
+  </div>
+</body>
+</html>
